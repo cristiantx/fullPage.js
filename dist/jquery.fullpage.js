@@ -1164,6 +1164,11 @@
                         } else if (touchEndY > touchStartY) {
                             scrolling('up', scrollable);
                         }
+                        if($.isFunction(options.onManualChange)){
+                            if(options.onManualChange.call()){
+                                return;
+                            }
+                        }
                     }
                 }
             }
@@ -1296,6 +1301,11 @@
                         //scrolling up?
                         }else {
                             scrolling('up', scrollable);
+                        }
+                        if($.isFunction(options.onManualChange)){
+                            if(options.onManualChange.call()){
+                                return;
+                            }
                         }
                     }
                 }
